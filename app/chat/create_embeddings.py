@@ -19,4 +19,4 @@ def create_embeddings_for_pdf(pdf_id: str, pdf_path: str):
         }
 
     vector_store.add_documents(docs)
-    
+     
