@@ -1,5 +1,6 @@
 from langchain.chat_models import ChatOpenAI
 from langchain.prompts import ChatPromptTemplate
+from langchain.chains import LLMChain
 from dotenv import load_dotenv
 
 load_dotenv()
@@ -10,7 +11,12 @@ prompt = ChatPromptTemplate.from_messages([
     ("human", "{content}")
 ])
 
-messages = prompt.format_messages(content = "tell me a joke")
+chain = LLMChain(llm = chat, prompt = prompt)
 
-for message in chat.stream(messages):
-    print(message.content)
+for output in chain.stream(input = {"content" : "tell me a joke"}):
+    print(output)
+
+# messages = prompt.format_messages(content = "tell me a joke")
+
+# for message in chat.stream(messages):
+#     print(message.content)
