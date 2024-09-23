@@ -1,3 +1,8 @@
+# PDF-AI : AI-Powered Q&A for PDFs
+## Architecture
+
+<img width="1402" alt="Embed LLM" src="https://github.com/rajeshdavidbabu/pdf-chat-ai/assets/15684795/98f54183-b1e0-4dd4-8e8f-b6994e36f814">
+
 # First Time Setup
 
 ## Using Pipenv [Recommended]
