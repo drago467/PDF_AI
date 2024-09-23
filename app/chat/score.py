@@ -38,3 +38,6 @@ def get_scores():
     """
 
     pass
+
+def random_component_by_score(component_type, component_map):
+    pass
