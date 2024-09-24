@@ -9,11 +9,11 @@ def score_conversation(
     client.hincrby("llm_score_values", llm, score)
     client.hincrby("llm_score_counts", llm, 1)
 
-    client.hincrby("retriever_score_values", retriever, score)
-    client.hincrby("retriever_score_counts", retriever, 1)
+    client.hincrby("retriever_score_values", llm, score)
+    client.hincrby("retriever_score_counts", llm, 1)
 
-    client.hincrby("memory_score_values", memory, score)
-    client.hincrby("memory_score_counts", memory, 1)
+    client.hincrby("memory_score_values", llm, score)
+    client.hincrby("memory_score_counts", llm, 1)
 
 def get_scores():
     aggregate = {"llm": {}, "retriever": {}, "memory": {}}
@@ -31,7 +31,6 @@ def get_scores():
             aggregate[component_type][name] = [avg]
 
     return aggregate
-
 
 def random_component_by_score(component_type, component_map):
     # Make sure componenet_type is 'llm', 'retriever', or 'memory'
